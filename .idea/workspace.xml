@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12483787-e58e-4986-80a0-5f2fbb7ab0a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/views/doctors_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/doctors_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ui/views/widgets/profile_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/widgets/profile_card.dart" afterDir="false" />
-    </list>
+    <list default="true" id="12483787-e58e-4986-80a0-5f2fbb7ab0a3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
