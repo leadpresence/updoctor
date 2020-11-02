@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="12483787-e58e-4986-80a0-5f2fbb7ab0a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/views/doctors_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/doctors_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/views/widgets/profile_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/widgets/profile_card.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jgi11HM9Yu8gQ74ef4Y7tum0hE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="12483787-e58e-4986-80a0-5f2fbb7ab0a3" name="Default Changelist" comment="" />
+      <created>1604231916678</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604231916678</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="100" y="127" width="1166" height="493" key="AVDManager" timestamp="1604294195264">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state x="100" y="127" width="1166" height="493" key="AVDManager/0.27.1366.693@0.27.1366.693" timestamp="1604294195264" />
+    <state width="1320" height="151" key="GridCell.Tab.0.bottom" timestamp="1604236107238">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state width="1320" height="151" key="GridCell.Tab.0.bottom/0.27.1366.693@0.27.1366.693" timestamp="1604236107238" />
+    <state width="1320" height="151" key="GridCell.Tab.0.center" timestamp="1604236107237">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state width="1320" height="151" key="GridCell.Tab.0.center/0.27.1366.693@0.27.1366.693" timestamp="1604236107237" />
+    <state width="1320" height="151" key="GridCell.Tab.0.left" timestamp="1604236107236">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state width="1320" height="151" key="GridCell.Tab.0.left/0.27.1366.693@0.27.1366.693" timestamp="1604236107236" />
+    <state width="1320" height="151" key="GridCell.Tab.0.right" timestamp="1604236107238">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state width="1320" height="151" key="GridCell.Tab.0.right/0.27.1366.693@0.27.1366.693" timestamp="1604236107238" />
+    <state x="172" y="27" width="1012" height="693" key="SettingsEditor" timestamp="1604234080107">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state x="172" y="27" width="1012" height="693" key="SettingsEditor/0.27.1366.693@0.27.1366.693" timestamp="1604234080107" />
+    <state x="372" y="27" width="621" height="693" key="find.popup" timestamp="1604309337112">
+      <screen x="0" y="27" width="1366" height="693" />
+    </state>
+    <state x="372" y="27" width="621" height="693" key="find.popup/0.27.1366.693@0.27.1366.693" timestamp="1604309337112" />
+  </component>
+</project>
