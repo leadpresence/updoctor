@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:updoctor/app/utils/margin.dart';
+import 'package:updoctor/ui/views/widgets/profile_card.dart';
+import 'package:flutter/services.dart';
 
 class DoctorsScreen extends StatefulWidget {
   DoctorsScreen({Key key}) : super(key: key);
@@ -12,19 +14,22 @@ class DoctorsScreen extends StatefulWidget {
 class _DoctorsScreenState extends State<DoctorsScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
+        title: Text("Doctors"),
         brightness: Brightness.light,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[200],
         elevation: 0,
       ),
       body: SafeArea(
         ///Screen Container
+
         child: Container(
             height: screenHeight(context) - 100,
             child: Column(children: <Widget>[
-              const VMargin(90),
+              // const VMargin(90),
 
               /// stack to position back button and the serch field
               Stack(
@@ -41,10 +46,12 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                             ///parent container for the text field
                             ///decoration
                             Container(
+                                height: 50,
+                                width: screenWidth(context) - 10,
                                 margin: EdgeInsets.symmetric(horizontal: 60),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(25),
                                   border: Border.all(
                                       width: 1, color: Colors.grey[50]),
                                   boxShadow: [
@@ -62,10 +69,29 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                                 child: widgetSearchtextField()),
                       )
                     ],
-                  )
+                  ),
+
+                  //USER A FUTURE BUILD HERE
                 ],
               ),
-              const VMargin(30),
+              const VMargin(60),
+
+              ///This is the Parent to the List of doctors Models
+              Container(
+                height: screenHeight(context) - 150,
+                width: screenWidth(context),
+
+                /// TODO USER A FUTURE BUILD HERE
+                child: ListView(
+                  children: [
+                    ProfileCard(),
+                    const VMargin(4),
+                    ProfileCard(),
+                    ProfileCard(),
+                    ProfileCard()
+                  ],
+                ),
+              )
             ])),
       ),
     );

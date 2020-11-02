@@ -6,7 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 class ProfileCard extends StatefulWidget {
   final Orientation orientation;
-  ProfileCard(this.orientation, {Key key}) : super(key: key);
+  ProfileCard({this.orientation, Key key}) : super(key: key);
 
   @override
   _ProfileCardState createState() => _ProfileCardState();
@@ -15,112 +15,109 @@ class ProfileCard extends StatefulWidget {
 class _ProfileCardState extends State<ProfileCard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(
-        brightness: Brightness.light,
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Stack(
-          alignment: Alignment.centerLeft,
-          children: [
-            Container(
-              height: 161,
-              width: screenWidth(context),
-              margin: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      spreadRadius: -7,
-                      offset: Offset(0, 10),
-                      // color: Colors.grey.withOpacity(0.2),
-                      color: Color(0xFFFFFF),
-                      blurRadius: 10,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(4)),
-              child: Stack(
-                alignment: Alignment.topLeft,
-                children: [
-                  ///rate  number
-                  Positioned(
-                    // top: 8,
-                    left: 11,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8, left: 8.0),
-                      child: Column(
-                        children: [widgetTextRate()],
-                      ),
-                    ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Stack(
+        alignment: Alignment.centerLeft,
+        children: [
+          Container(
+            height: 181,
+            width: screenWidth(context),
+            margin: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    spreadRadius: -7,
+                    offset: Offset(0, 10),
+                    // color: Colors.grey.withOpacity(0.2),
+                    color: Color(0xFFFFFF),
+                    blurRadius: 10,
                   ),
-
-                  ///Doctor profile container Parent
-                  Padding(
-                    padding: const EdgeInsets.only(left: 26.0),
-                    child: Container(
-                      height: 100,
-                      width: screenWidth(context),
-                      child: Row(
-                        children: [
-                          widgetDoctorPic(),
-
-                          ///Doctor Names and Title & Hospital Name
-                          widgetDoctorDetails()
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  VMargin(26),
-
-                  ///Hospital Name & Price Chip
-                  Padding(
-                      padding:
-                          const EdgeInsets.only(top: 86, left: 8.0, right: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          widgetHospitalName(),
-                          HMargin(7),
-                          widgetPriceChip()
-                        ],
-                      )),
-                  VMargin(20),
-
-                  ///FeedBack
-                  Padding(
-                      padding: const EdgeInsets.only(
-                          top: 123, left: 8.0, right: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              Text("78"),
-                              Text("FeedBack"),
-                            ],
-                          ),
-                          HMargin(5),
-                          Column(
-                            children: [
-                              Text("~" + "3.k" + "km"),
-                              Text("Distance"),
-                            ],
-                          ),
-                          HMargin(5),
-                          Column(),
-                          HMargin(5)
-                        ],
-                      ))
                 ],
-              ),
-            )
-          ],
-        ),
+                borderRadius: BorderRadius.circular(4)),
+            child: Stack(
+              alignment: Alignment.topLeft,
+              children: [
+                ///rate  number
+                Positioned(
+                  // top: 8,
+                  left: 11,
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8, left: 8.0),
+                    child: Column(
+                      children: [widgetTextRate()],
+                    ),
+                  ),
+                ),
+
+                ///Doctor profile container Parent
+                Padding(
+                  padding: const EdgeInsets.only(left: 26.0),
+                  child: Container(
+                    height: 100,
+                    width: screenWidth(context),
+                    child: Row(
+                      children: [
+                        widgetDoctorPic(),
+
+                        ///Doctor Names and Title & Hospital Name
+                        widgetDoctorDetails()
+                      ],
+                    ),
+                  ),
+                ),
+
+                VMargin(26),
+
+                ///Hospital Name & Price Chip
+                Padding(
+                    padding:
+                        const EdgeInsets.only(top: 86, left: 8.0, right: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        widgetHospitalName(),
+                        HMargin(7),
+                        widgetPriceChip()
+                      ],
+                    )),
+                VMargin(40),
+
+                ///FeedBack
+                Padding(
+                    padding:
+                        const EdgeInsets.only(top: 130, left: 8.0, right: 8.0),
+                    child: Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text("78"),
+                            Text("FeedBack"),
+                          ],
+                        ),
+                        HMargin(25),
+                        Column(
+                          children: [
+                            Text("~" + "3.0" + "km"),
+                            Text("Distance"),
+                          ],
+                        ),
+                        HMargin(35),
+                        Column(
+                          children: [widgetCallChip()],
+                        ),
+                        HMargin(25),
+                        Column(
+                          children: [widgetBookChip()],
+                        ),
+                      ],
+                    ))
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -237,7 +234,7 @@ class _ProfileCardState extends State<ProfileCard> {
       );
 
   widgetPriceChip() => Container(
-        height: 40,
+        height: 35,
         width: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -262,10 +259,64 @@ class _ProfileCardState extends State<ProfileCard> {
           ),
         ),
       );
+
   widgetPriceText() => Container(
         child: Text("750",
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
+      );
+  widgetCallChip() => Container(
+        height: 40,
+        width: 80,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            color: Colors.grey[100],
+            border: Border.all(width: 1, color: Colors.green)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [widgetCallText()],
+          ),
+        ),
+      );
+
+  widgetCallText() => Container(
+        child: Text("Call",
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 15,
+            )),
+      );
+
+  widgetBookChip() => Container(
+        height: 40,
+        width: 80,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            color: Colors.grey[100],
+            border: Border.all(width: 1, color: Colors.green)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [widgetBookText()],
+          ),
+        ),
+      );
+
+  widgetBookText() => Container(
+        child: Text("Book",
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 15,
+            )),
       );
 }

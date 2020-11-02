@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Doctor App',
       theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'Orkney'),
       debugShowCheckedModeBanner: false,
-      home: ProfileCard(Orientation.portrait),
+      home: DoctorsScreen(),
     );
   }
 }
