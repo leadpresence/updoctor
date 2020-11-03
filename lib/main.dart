@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:updoctor/ui/views/doctors_list.dart';
+import 'package:updoctor/ui/views/doctors_list/doctors_list.dart';
 import 'package:updoctor/ui/views/widgets/profile_card.dart';
 
 void main() {

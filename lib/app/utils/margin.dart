@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 /// components with this
 
 class HMargin extends StatelessWidget {
-  final double h;
-  const HMargin(this.h);
+  final double w;
+  const HMargin(this.w);
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: h);
+    return SizedBox(width: w);
   }
 }
 

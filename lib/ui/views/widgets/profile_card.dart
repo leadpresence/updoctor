@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:updoctor/app/utils/margin.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 class ProfileCard extends StatefulWidget {
   final Orientation orientation;
@@ -21,28 +24,28 @@ class _ProfileCardState extends State<ProfileCard> {
         alignment: Alignment.centerLeft,
         children: [
           Container(
-            height: 181,
+            height: 198,
             width: screenWidth(context),
-            margin: EdgeInsets.all(8),
+            margin: EdgeInsets.all(4),
             decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
                   BoxShadow(
                     spreadRadius: -7,
                     offset: Offset(0, 10),
-                    // color: Colors.grey.withOpacity(0.2),
+
                     color: Color(0xFFFFFF),
                     blurRadius: 10,
                   ),
                 ],
-                borderRadius: BorderRadius.circular(4)),
+                borderRadius: BorderRadius.circular(10)),
             child: Stack(
-              alignment: Alignment.topLeft,
+              // alignment: Alignment.topLeft,
               children: [
                 ///rate  number
                 Positioned(
                   // top: 8,
-                  left: 11,
+                  left: 1,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8, left: 8.0),
                     child: Column(
@@ -53,41 +56,39 @@ class _ProfileCardState extends State<ProfileCard> {
 
                 ///Doctor profile container Parent
                 Padding(
-                  padding: const EdgeInsets.only(left: 26.0),
+                  padding: const EdgeInsets.only(left: 20.0),
                   child: Container(
-                    height: 100,
+                    height: 110,
                     width: screenWidth(context),
                     child: Row(
-                      children: [
-                        widgetDoctorPic(),
-
-                        ///Doctor Names and Title & Hospital Name
-                        widgetDoctorDetails()
-                      ],
+                    mainAxisAlignment: MainAxisAlignment.start,
+                      children: [widgetDoctorPic(),
+                        widgetDoctorDetails()],
                     ),
                   ),
                 ),
 
-                VMargin(26),
+
 
                 ///Hospital Name & Price Chip
                 Padding(
+
                     padding:
-                        const EdgeInsets.only(top: 86, left: 8.0, right: 8.0),
+                        const EdgeInsets.only(top: 112, left: 8.0, right: 8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         widgetHospitalName(),
-                        HMargin(7),
+
                         widgetPriceChip()
                       ],
                     )),
-                VMargin(40),
+
 
                 ///FeedBack
                 Padding(
                     padding:
-                        const EdgeInsets.only(top: 130, left: 8.0, right: 8.0),
+                        const EdgeInsets.only(top: 158, left: 8.0, right: 8.0),
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -143,7 +144,7 @@ class _ProfileCardState extends State<ProfileCard> {
         child: ListTile(
           dense: true,
           isThreeLine: true,
-          contentPadding: EdgeInsets.symmetric(horizontal: 14),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10),
           onTap: () {},
           title: Padding(
             padding: EdgeInsets.only(top: 10),
@@ -155,9 +156,10 @@ class _ProfileCardState extends State<ProfileCard> {
             ),
           ),
           subtitle: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+
+            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              VMargin(23),
+              // VMargin(23),
               Row(
                 children: [
                   Text(
@@ -187,12 +189,15 @@ class _ProfileCardState extends State<ProfileCard> {
                         fontWeight: FontWeight.w800,
                         fontSize: 14),
                   ),
-                  HMargin(5),
-                  Icon(
-                    // CupertinoIcons.hand_thumbsup_fill,
-                    Icons.thumb_up,
-                    size: 16,
-                    color: Colors.blueAccent,
+                  HMargin(.02),
+                  GestureDetector(
+                    onTap: () {},
+                    child:
+                    Icon(
+                      Icons.thumb_up,
+                      size: 16,
+                      color: Colors.blueAccent,
+                    ),
                   ),
                 ],
               ),
@@ -200,41 +205,52 @@ class _ProfileCardState extends State<ProfileCard> {
             ],
           ),
           trailing: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             children: [
-              Icon(
-                Icons.check_circle_outline_outlined,
-                color: Colors.black,
-                size: 20,
-              ),
-              Icon(
-                Icons.bookmark_border_outlined,
-                color: Colors.black,
-                size: 20,
-              ),
+              GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    LineIcons.check_circle,
+                    color: Colors.green,
+                    size: 20,
+                  )),
+              Spacer(flex: 20,),
+              GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    LineIcons.bookmark,
+                    color: Colors.grey,
+                    size: 20,
+                  )),
+             Spacer(flex: 20,),
               Expanded(
+                  child: GestureDetector(
+                onTap: () {},
                 child: Icon(
-                  Icons.video_call_outlined,
-                  color: Colors.black,
+                  LineIcons.video_camera,
+                  color: Colors.grey,
                   size: 20,
                 ),
-              ),
+              )),
             ],
           ),
         ),
       );
 
-  widgetHospitalName() => Container(
-        height: 40,
-        width: 250,
-        child: Text("Luftanza multispeciality clinic",
-            overflow: TextOverflow.clip,
-            maxLines: 2,
-            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
-      );
+  widgetHospitalName() => Flexible(
+    flex: 2,
+    child: Container(
+          height: 40,
+          width: 250,
+          child: Text("Luftanza multispeciality clinic",
+              overflow: TextOverflow.clip,
+              maxLines: 2,
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
+        ),
+  );
 
   widgetPriceChip() => Container(
-        height: 35,
+        height: 30,
         width: 80,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(30)),
@@ -267,7 +283,7 @@ class _ProfileCardState extends State<ProfileCard> {
             style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
       );
   widgetCallChip() => Container(
-        height: 40,
+        height: 35,
         width: 80,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -294,7 +310,7 @@ class _ProfileCardState extends State<ProfileCard> {
       );
 
   widgetBookChip() => Container(
-        height: 40,
+        height: 35,
         width: 80,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
