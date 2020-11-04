@@ -6,6 +6,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:updoctor/app/utils/colors.dart';
 
 class ProfileCard extends StatefulWidget {
   final Orientation orientation;
@@ -33,7 +34,6 @@ class _ProfileCardState extends State<ProfileCard> {
                   BoxShadow(
                     spreadRadius: -7,
                     offset: Offset(0, 10),
-
                     color: Color(0xFFFFFF),
                     blurRadius: 10,
                   ),
@@ -61,29 +61,20 @@ class _ProfileCardState extends State<ProfileCard> {
                     height: 110,
                     width: screenWidth(context),
                     child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                      children: [widgetDoctorPic(),
-                        widgetDoctorDetails()],
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [widgetDoctorPic(), widgetDoctorDetails()],
                     ),
                   ),
                 ),
 
-
-
                 ///Hospital Name & Price Chip
                 Padding(
-
                     padding:
                         const EdgeInsets.only(top: 112, left: 8.0, right: 8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        widgetHospitalName(),
-
-                        widgetPriceChip()
-                      ],
+                      children: [widgetHospitalName(), widgetPriceChip()],
                     )),
-
 
                 ///FeedBack
                 Padding(
@@ -156,7 +147,6 @@ class _ProfileCardState extends State<ProfileCard> {
             ),
           ),
           subtitle: Column(
-
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               // VMargin(23),
@@ -192,8 +182,7 @@ class _ProfileCardState extends State<ProfileCard> {
                   HMargin(.02),
                   GestureDetector(
                     onTap: () {},
-                    child:
-                    Icon(
+                    child: Icon(
                       Icons.thumb_up,
                       size: 16,
                       color: Colors.blueAccent,
@@ -205,7 +194,6 @@ class _ProfileCardState extends State<ProfileCard> {
             ],
           ),
           trailing: Column(
-            mainAxisSize: MainAxisSize.max,
             children: [
               GestureDetector(
                   onTap: () {},
@@ -214,7 +202,9 @@ class _ProfileCardState extends State<ProfileCard> {
                     color: Colors.green,
                     size: 20,
                   )),
-              Spacer(flex: 20,),
+              Spacer(
+                flex: 60,
+              ),
               GestureDetector(
                   onTap: () {},
                   child: Icon(
@@ -222,12 +212,14 @@ class _ProfileCardState extends State<ProfileCard> {
                     color: Colors.grey,
                     size: 20,
                   )),
-             Spacer(flex: 20,),
+              Spacer(
+                flex: 30,
+              ),
               Expanded(
                   child: GestureDetector(
                 onTap: () {},
                 child: Icon(
-                  LineIcons.video_camera,
+                  CupertinoIcons.videocam_fill,
                   color: Colors.grey,
                   size: 20,
                 ),
@@ -238,8 +230,8 @@ class _ProfileCardState extends State<ProfileCard> {
       );
 
   widgetHospitalName() => Flexible(
-    flex: 2,
-    child: Container(
+        flex: 2,
+        child: Container(
           height: 40,
           width: 250,
           child: Text("Luftanza multispeciality clinic",
@@ -247,7 +239,7 @@ class _ProfileCardState extends State<ProfileCard> {
               maxLines: 2,
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
         ),
-  );
+      );
 
   widgetPriceChip() => Container(
         height: 30,
@@ -315,7 +307,7 @@ class _ProfileCardState extends State<ProfileCard> {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             color: Colors.grey[100],
-            border: Border.all(width: 1, color: Colors.green)),
+            border: Border.all(width: 1, color: dark_grey)),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(

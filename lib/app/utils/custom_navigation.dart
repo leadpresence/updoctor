@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomRouting<T> extends PageRoute<T> {
-  CustomRouting(this.child);
+class CustomPageRoute<T> extends PageRoute<T> {
+  CustomPageRoute(this.child);
 
   final Widget child;
 

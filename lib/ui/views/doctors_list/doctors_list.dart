@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:updoctor/app/utils/margin.dart';
 import 'package:updoctor/ui/views/widgets/profile_card.dart';
 import 'package:flutter/services.dart';
 import 'package:updoctor/ui/views/widgets/background.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
-
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:updoctor/app/utils/colors.dart';
 class DoctorsScreen extends StatefulWidget {
   //TODO make this a hook widget
   DoctorsScreen({Key key}) : super(key: key);
@@ -20,27 +22,29 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Background(
-      child: Container(
+      // showAppBar: true,
+      child:
+      Container(
           height: screenHeight(context),
-          child: Column(children: <Widget>[
-            /// stack to position back button and the serch field
+          child:
+          Column(children: <Widget>[
+            /// stack to position back button and the search field
             Stack(
               alignment: Alignment.centerLeft,
               children: [
                 widgetBackIcon(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child:
-
                           ///parent container for the text field
                           ///decoration
                           Container(
-                              height: 50,
-                              width: screenWidth(context) - 10,
-                              margin: EdgeInsets.symmetric(horizontal: 60),
+                              height: 47,
+                              width: screenWidth(context,percent: 10),
+                              margin: EdgeInsets.symmetric(horizontal: 40),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(25),
@@ -65,32 +69,33 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
               ],
             ),
             const VMargin(60),
+            FilterPanel(),
 
+            const VMargin(60),
             ///This is the Parent to the List of doctors Models
-            DoctorsList()
-          ])),
+            // DoctorsList()
+          ])
+      ),
     );
   }
 
   widgetBackIcon() => Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon(
-            CupertinoIcons.back,
-            size: 40.0,
-          ),
-        ],
+          Icon(CupertinoIcons.back, size: 40.0),
+                  ],
       );
   widgetSearchtextField() => TextField(
         style: TextStyle(color: Colors.grey),
         decoration: new InputDecoration(
           border: InputBorder.none,
-          prefixIcon: new Icon(CupertinoIcons.search),
-          hintText: '',
+          prefixIcon: new Icon(LineIcons.search),
+          hintText: 'search..',
           hintStyle: TextStyle(color: Colors.grey, fontSize: 12),
         ),
       );
 }
+
 
 class DoctorsList extends HookWidget {
   final _scrollController = ScrollController();
@@ -98,6 +103,7 @@ class DoctorsList extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       height: screenHeight(context) - 150,
       width: screenWidth(context),
       child: FadingEdgeScrollView.fromScrollView(
@@ -111,3 +117,39 @@ class DoctorsList extends HookWidget {
     );
   }
 }
+
+class FilterPanel extends HookWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      flex: 2,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 40),
+
+        height: screenHeight(context) - 500,
+      width: screenWidth(context),
+      child: Padding(
+        padding: EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Text("Filter", style: TextStyle(fontWeight: FontWeight.w300,fontSize: 16),),
+            Spacer(flex: 15,),
+            GestureDetector(
+              onTap:(){},
+              child: Icon(
+                Icons.filter_alt_rounded,
+                color: dark_grey,
+      )
+      )
+
+          ],
+        ),
+      ),
+      ),
+    );
+  }
+
+}
+
+

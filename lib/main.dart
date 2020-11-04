@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:updoctor/ui/views/doctor_profile/profile.dart';
 import 'package:updoctor/ui/views/doctors_list/doctors_list.dart';
 import 'package:updoctor/ui/views/widgets/profile_card.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Updoctor());
 }
 
-class MyApp extends StatelessWidget {
+class Updoctor extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Doctor App',
       theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'Orkney'),
       debugShowCheckedModeBanner: false,
-      home: DoctorsScreen(),
+      home: Profile(),
     );
   }
 }
