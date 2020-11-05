@@ -23,7 +23,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  #icons
   cupertino_icons: ^1.0.0
+  fluentui_system_icons: 1.1.54
+  #time
+  timeago: 2.0.18
+  #images
   cached_network_image:
   line_icons: ^0.2.0
   # Porovider pattern 
@@ -31,6 +36,8 @@ dependencies:
   flutter_hooks: ^0.14.1
   #paralx effect
   fading_edge_scrollview: ^1.1.4
+  #font
+  google_fonts: ^1.1.1
   
 
 dev_dependencies:

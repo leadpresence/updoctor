@@ -1,1 +1,3 @@
-class Doctor {}
+class Doctor {
+  String name;
+}
