@@ -11,7 +11,7 @@ class Background extends StatelessWidget {
   const Background(
       {Key key,
       this.child,
-      this.showAppBar,
+      @required this.showAppBar,
       this.title,
       this.icon,
       this.bcolor})
@@ -19,33 +19,54 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: bcolor ?? grey50,
-      appBar: showAppBar
-          ? AppBar(
+    return showAppBar
+        ? Scaffold(
+            backgroundColor: bcolor ?? grey50,
+            appBar: AppBar(
               title: Text(title ?? "",
                   style: TextStyle(fontSize: 20, color: darkGrey)),
               brightness: Brightness.light,
               backgroundColor: grey100,
               elevation: 0,
               leading: icon,
-            )
-          : null,
-      body: Container(
-        child: Stack(children: [
-          Align(
-            alignment: Alignment.topRight,
-          ),
-          child ??
-              Container(
-                child: Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 0.5,
+            ),
+            body: Padding(
+              padding: const EdgeInsets.only(top: 16.0),
+              child: Container(
+                child: Stack(children: [
+                  Align(
+                    alignment: Alignment.topRight,
                   ),
-                ),
-              )
-        ]),
-      ),
-    );
+                  child ??
+                      Container(
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 0.5,
+                          ),
+                        ),
+                      )
+                ]),
+              ),
+            ))
+        : Scaffold(
+            backgroundColor: bcolor ?? grey50,
+            body: Padding(
+              padding: const EdgeInsets.only(top: 16.0),
+              child: Container(
+                child: Stack(children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                  ),
+                  child ??
+                      Container(
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 0.5,
+                          ),
+                        ),
+                      )
+                ]),
+              ),
+            ));
   }
 }

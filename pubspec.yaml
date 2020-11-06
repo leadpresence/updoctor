@@ -26,11 +26,13 @@ dependencies:
   #icons
   cupertino_icons: ^1.0.0
   fluentui_system_icons: 1.1.54
+  font_awesome_flutter: ^8.10.0
+  line_icons: ^0.2.0
   #time
   timeago: 2.0.18
   #images
   cached_network_image:
-  line_icons: ^0.2.0
+  
   # Porovider pattern 
   hooks_riverpod: ^0.12.1
   flutter_hooks: ^0.14.1
@@ -65,10 +67,10 @@ flutter:
   # https://flutter.dev/assets-and-images/#from-packages
 
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+     - family: SFProDisplay
+       fonts:
+         - asset: assetsfonts/SFProDisplay-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

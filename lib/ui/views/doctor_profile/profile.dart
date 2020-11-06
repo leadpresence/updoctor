@@ -3,21 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/all.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:updoctor/app/models/specialization.dart';
 import 'package:updoctor/app/utils/colors.dart';
+import 'package:updoctor/ui/views/widgets/feeback_comment.dart';
 import 'package:updoctor/ui/views/widgets/hospital_pic.dart';
+import 'package:updoctor/ui/views/widgets/issues_tile.dart';
 import 'package:updoctor/ui/views/widgets/kback_button.dart';
 import 'package:updoctor/ui/views/widgets/background.dart';
 import 'package:updoctor/app/utils/margin.dart';
+import 'package:updoctor/ui/views/widgets/membership_tile.dart';
 import 'package:updoctor/ui/views/widgets/profilePic.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:updoctor/ui/views/widgets/rating_on_profile_widget.dart';
+import 'package:updoctor/ui/views/widgets/report_issue.dart';
+import 'package:updoctor/ui/views/widgets/share_feed_back.dart';
+import 'package:updoctor/ui/views/widgets/specialization_tile.dart';
 
-class Profile extends StatefulWidget {
-  @override
-  _ProfileState createState() => _ProfileState();
-}
+class Profile extends HookWidget {
+  final bool multipleHospitals;
+  Profile({Key key, this.multipleHospitals});
 
-class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Background(
@@ -36,22 +43,69 @@ class _ProfileState extends State<Profile> {
               SingleDoctorProfile(),
               ClinicDetails(),
               SingleHospitalProfile(),
+              widgetHeading(),
+              HospitalImages(),
+              widgetAddress(),
               Padding(
-                padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+                padding:
+                    EdgeInsets.only(top: 6, bottom: 6, left: 10, right: 10),
                 child: Container(
-                  child: Text(
-                    "Clinic Photos",
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.w600),
-                  ),
+                  height: 225,
+                  width: screenWidth(context),
+                  color: seaBlue,
                 ),
               ),
-              HospitalImages(),
-              widgetAddress()
+              AvailableDays(),
+              AvailbleInWidget(),
+              multipleHospitals ?? MultipleHospitals(),
+              widgetPatients(),
+              RatingWidget(
+                rating: 97,
+                feedBack: 778,
+                profiles: 990,
+              ),
+              FeedBackComment(),
+              FeedBackComment(),
+              SharePanel(),
+              widgetSpecializationHeading(),
+              SpecializationList(),
+              widgetIssuesHeading(),
+              IssuesList(),
+              widgetMemberShip(),
+              MembershipList(),
+              widgetAboutHeading(),
+              widgetAbout(),
+              ReportIssue()
             ],
           ),
         ));
   }
 
+  ///photo heading
+  widgetHeading() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+          // alignment: Alignment.center,
+          child: Text(
+            "Clinic Photos",
+            // textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  ///photo heading
+  widgetPatients() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 6),
+        child: Container(
+          child: Text(
+            "Patients Feedback",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  ///Address
   widgetAddress() => Padding(
         padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
         child: Container(
@@ -60,6 +114,72 @@ class _ProfileState extends State<Profile> {
             maxLines: 3,
             overflow: TextOverflow.visible,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  ///specialization
+  widgetSpecializationHeading() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+          child: Text(
+            "Clinical Specialization",
+            maxLines: 1,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  ///issues
+  widgetIssuesHeading() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+          child: Text(
+            "Clinical Issues",
+            maxLines: 1,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  ///issues
+  widgetMemberShip() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+          child: Text(
+            "Membership ",
+            maxLines: 1,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  ///AboutHeading
+
+  widgetAboutHeading() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+          child: Text(
+            "About Dr. Felix ",
+            maxLines: 1,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
+
+  widgetAbout() => Padding(
+        padding: EdgeInsets.only(top: 0, bottom: 6, left: 8, right: 8),
+        child: Text(
+          'Dr. Chibueze Felix is a platform where Indians can be kept in the loop about bills, policies and laws that concern us and affect us directly/indirectly. Those in power are representatives of Indian and have no right to do anything contrary to our wish because this is a Healthe and they are to exercise our wishes. This is not our wish!',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey[800],
+            height: 1.6,
+            fontWeight: FontWeight.w300,
           ),
         ),
       );
@@ -137,8 +257,9 @@ class SingleHospitalProfile extends HookWidget {
       padding: const EdgeInsets.only(left: 4.0, right: 4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          ProfilePic(),
+          HospitalPicLarge(),
           MakeListTileHospital(),
         ],
       ),
@@ -153,17 +274,29 @@ class HospitalImages extends HookWidget {
     return Padding(
       padding: const EdgeInsets.all(6.0),
       child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.grey[50],
+            boxShadow: [
+              BoxShadow(
+                spreadRadius: 0,
+                offset: Offset(0, 10),
+                color: Colors.grey.withOpacity(0.5),
+                blurRadius: 55,
+              ),
+            ],
+          ),
           // color: grey,
           height: 90.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
-              HospitalPic(),
-              HospitalPic(),
-              HospitalPic(),
-              HospitalPic(),
-              HospitalPic(),
-              HospitalPic(),
+              HospitalPicSmall(),
+              HospitalPicSmall(),
+              HospitalPicSmall(),
+              HospitalPicSmall(),
+              HospitalPicSmall(),
+              HospitalPicSmall(),
             ],
           )),
     );
@@ -179,9 +312,10 @@ class ClinicDetails extends HookWidget {
       child: Column(
         children: [
           ListTile(
-            leading: Icon(
-              LineIcons.graduation_cap,
-              size: 45,
+            leading: FaIcon(
+              FontAwesomeIcons.graduationCap,
+              size: 30,
+              color: black,
             ),
             title: Text(
               "Degree",
@@ -198,9 +332,10 @@ class ClinicDetails extends HookWidget {
 
           ///Clinic Name
           ListTile(
-            leading: Icon(
-              Icons.local_hospital_outlined,
-              size: 45,
+            leading: FaIcon(
+              // Icons.local_hospital_outlined,
+              FontAwesomeIcons.clinicMedical,
+              size: 30, color: black,
             ),
             title: Text(
               "Clinic Details",
@@ -213,53 +348,175 @@ class ClinicDetails extends HookWidget {
   }
 }
 
-// class Test extends HookWidget {
-//   final String foodName;
-//   final String imgPath;
-//   final String price;
-//   final Color bgColor;
-//   final Color textColor;
-//   Test(
-//       {Key key,
-//       @required this.foodName,
-//       this.imgPath,
-//       @required this.price,
-//       @required this.bgColor,
-//       @required this.textColor});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//         padding: EdgeInsets.only(left: 15.0),
-//         child: InkWell(
-//             onTap: () {
-//               //ToDo
-//             },
-//             child: Container(
-//                 height: 105.0,
-//                 width: 40.0,
-//                 decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(15.0), color: bgColor),
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: <Widget>[
-//                     Hero(
-//                         tag: foodName,
-//                         child: Container(
-//                             height: 75.0,
-//                             width: 75.0,
-//                             decoration: BoxDecoration(
-//                                 color: Colors.white, shape: BoxShape.circle),
-//                             child: Center(child: CircularProgressIndicator()))),
-//                     SizedBox(height: 25.0),
-//                     Text(
-//                       foodName,
-//                       style: GoogleFonts.notoSans(
-//                           fontSize: 17.0, color: textColor),
-//                     ),
-//                     Text('\$' + price,
-//                         style: GoogleFonts.notoSans(
-//                             fontSize: 17.0, color: textColor))
-//                   ],
-//                 ))));
-//   }
-// }
+///Available Days
+class AvailableDays extends HookWidget {
+  // TODO: add parameters
+  @override
+  Widget build(BuildContext context) {
+    TextStyle kst = TextStyle(
+      fontSize: 16,
+    );
+    return Padding(
+      padding: EdgeInsets.only(left: 6, right: 6, top: 6),
+      child: Container(
+        width: screenWidth(context),
+        height: 60,
+        // color: black,
+        child: Column(
+          children: [
+            //Times
+            Row(
+              children: [
+                Text(
+                  "Mon-Thur:",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                HMargin(5),
+                Text(
+                  "12:30",
+                  style: kst,
+                ),
+                Text("-"),
+                Text(
+                  "17:30",
+                  style: kst,
+                ),
+                Text(","),
+                HMargin(5),
+                Text(
+                  "19:30",
+                  style: kst,
+                ),
+                Text("-"),
+                Text(
+                  "22:30",
+                  style: kst,
+                ),
+                Text(","),
+                HMargin(5),
+                Text(
+                  "8:30",
+                  style: kst,
+                ),
+                Text("-"),
+                Text(
+                  "12:30",
+                  style: kst,
+                ),
+                Text(","),
+              ],
+            ),
+            // HMargin(25),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                FaIcon(
+                  FontAwesomeIcons.leaf,
+                  color: black,
+                  size: 12,
+                ),
+                HMargin(5),
+                Text(
+                  "Holidays:",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  maxLines: 1,
+                ),
+                HMargin(5),
+                Text(
+                  "Thurs",
+                  style: kst,
+                ),
+                HMargin(5),
+                Text("-"),
+                HMargin(5),
+                Text(
+                  "Sun",
+                  style: kst,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AvailbleInWidget extends HookWidget {
+  // TODO: add parameters
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.only(left: 6, right: 6, top: 0, bottom: 6),
+        child: Container(
+          height: 60,
+          width: screenWidth(context),
+          child: Column(
+            children: [
+              ListTile(
+                leading: FaIcon(
+                  FontAwesomeIcons.clinicMedical,
+                  size: 30,
+                  color: black,
+                ),
+                title: Text(
+                  "Also Available In",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+class MakeListTileMultipleHospitals extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(left: 2, right: 2),
+      padding: EdgeInsets.all(0),
+      height: 100,
+      width: 220,
+      child: ListTile(
+          // dense: true,
+
+          isThreeLine: true,
+          title: Text(
+            "Ashvagandha Ayurvedic MultiSpeciality Clinic",
+            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+          ),
+          subtitle: Text(
+            "Solapur, Maharashtra",
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              color: black,
+            ),
+          )),
+    );
+  }
+}
+
+class MultipleHospitals extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: add parameters
+
+    return Padding(
+      padding:
+          const EdgeInsets.only(left: 2.2, right: 2.2, bottom: 8, top: 0.2),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        // mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          HospitalPicLarge(),
+          MakeListTileMultipleHospitals(),
+          HospitalPicLarge(),
+        ],
+      ),
+    );
+  }
+}

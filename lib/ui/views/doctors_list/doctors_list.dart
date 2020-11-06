@@ -9,6 +9,7 @@ import 'package:updoctor/ui/views/widgets/background.dart';
 import 'package:fading_edge_scrollview/fading_edge_scrollview.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:updoctor/app/utils/colors.dart';
+
 class DoctorsScreen extends StatefulWidget {
   //TODO make this a hook widget
   DoctorsScreen({Key key}) : super(key: key);
@@ -22,12 +23,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Background(
-      // showAppBar: true,
-      child:
-      Container(
+      showAppBar: false,
+      child: Container(
           height: screenHeight(context),
-          child:
-          Column(children: <Widget>[
+          child: Column(children: <Widget>[
             /// stack to position back button and the search field
             Stack(
               alignment: Alignment.centerLeft,
@@ -39,11 +38,12 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   children: [
                     Expanded(
                       child:
+
                           ///parent container for the text field
                           ///decoration
                           Container(
                               height: 47,
-                              width: screenWidth(context,percent: 10),
+                              width: screenWidth(context, percent: 10),
                               margin: EdgeInsets.symmetric(horizontal: 40),
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -72,10 +72,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
             FilterPanel(),
 
             const VMargin(60),
+
             ///This is the Parent to the List of doctors Models
-            // DoctorsList()
-          ])
-      ),
+            DoctorsList()
+          ])),
     );
   }
 
@@ -83,7 +83,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Icon(CupertinoIcons.back, size: 40.0),
-                  ],
+        ],
       );
   widgetSearchtextField() => TextField(
         style: TextStyle(color: Colors.grey),
@@ -96,14 +96,12 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
       );
 }
 
-
 class DoctorsList extends HookWidget {
   final _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       height: screenHeight(context) - 150,
       width: screenWidth(context),
       child: FadingEdgeScrollView.fromScrollView(
@@ -118,38 +116,37 @@ class DoctorsList extends HookWidget {
   }
 }
 
-class FilterPanel extends HookWidget{
+class FilterPanel extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Flexible(
       flex: 2,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 40),
-
         height: screenHeight(context) - 500,
-      width: screenWidth(context),
-      child: Padding(
-        padding: EdgeInsets.all(8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text("Filter", style: TextStyle(fontWeight: FontWeight.w300,fontSize: 16),),
-            Spacer(flex: 15,),
-            GestureDetector(
-              onTap:(){},
-              child: Icon(
-                Icons.filter_alt_rounded,
-                color: dark_grey,
-      )
-      )
-
-          ],
+        width: screenWidth(context),
+        child: Padding(
+          padding: EdgeInsets.all(8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                "Filter",
+                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 16),
+              ),
+              Spacer(
+                flex: 15,
+              ),
+              GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.filter_alt_rounded,
+                    color: dark_grey,
+                  ))
+            ],
+          ),
         ),
-      ),
       ),
     );
   }
-
 }
-
-

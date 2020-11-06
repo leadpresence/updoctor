@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:updoctor/app/utils/custom_navigation.dart';
 import 'package:updoctor/app/utils/margin.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:updoctor/app/utils/colors.dart';
+import 'package:updoctor/ui/views/doctor_profile/profile.dart';
 
 class ProfileCard extends StatefulWidget {
   final Orientation orientation;
@@ -19,97 +21,102 @@ class ProfileCard extends StatefulWidget {
 class _ProfileCardState extends State<ProfileCard> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          Container(
-            height: 198,
-            width: screenWidth(context),
-            margin: EdgeInsets.all(4),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    spreadRadius: -7,
-                    offset: Offset(0, 10),
-                    color: Color(0xFFFFFF),
-                    blurRadius: 10,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, CustomPageRoute(Profile()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Stack(
+          alignment: Alignment.centerLeft,
+          children: [
+            Container(
+              height: 198,
+              width: screenWidth(context),
+              margin: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      spreadRadius: -7,
+                      offset: Offset(0, 10),
+                      color: Color(0xFFFFFF),
+                      blurRadius: 10,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(10)),
+              child: Stack(
+                // alignment: Alignment.topLeft,
+                children: [
+                  ///rate  number
+                  Positioned(
+                    // top: 8,
+                    left: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 8, left: 8.0),
+                      child: Column(
+                        children: [widgetTextRate()],
+                      ),
+                    ),
                   ),
+
+                  ///Doctor profile container Parent
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      height: 110,
+                      width: screenWidth(context),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [widgetDoctorPic(), widgetDoctorDetails()],
+                      ),
+                    ),
+                  ),
+
+                  ///Hospital Name & Price Chip
+                  Padding(
+                      padding: const EdgeInsets.only(
+                          top: 112, left: 8.0, right: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [widgetHospitalName(), widgetPriceChip()],
+                      )),
+
+                  ///FeedBack
+                  Padding(
+                      padding: const EdgeInsets.only(
+                          top: 158, left: 8.0, right: 8.0),
+                      child: Row(
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Text("78"),
+                              Text("FeedBack"),
+                            ],
+                          ),
+                          HMargin(25),
+                          Column(
+                            children: [
+                              Text("~" + "3.0" + "km"),
+                              Text("Distance"),
+                            ],
+                          ),
+                          HMargin(35),
+                          Column(
+                            children: [widgetCallChip()],
+                          ),
+                          HMargin(25),
+                          Column(
+                            children: [widgetBookChip()],
+                          ),
+                        ],
+                      ))
                 ],
-                borderRadius: BorderRadius.circular(10)),
-            child: Stack(
-              // alignment: Alignment.topLeft,
-              children: [
-                ///rate  number
-                Positioned(
-                  // top: 8,
-                  left: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8, left: 8.0),
-                    child: Column(
-                      children: [widgetTextRate()],
-                    ),
-                  ),
-                ),
-
-                ///Doctor profile container Parent
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
-                  child: Container(
-                    height: 110,
-                    width: screenWidth(context),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [widgetDoctorPic(), widgetDoctorDetails()],
-                    ),
-                  ),
-                ),
-
-                ///Hospital Name & Price Chip
-                Padding(
-                    padding:
-                        const EdgeInsets.only(top: 112, left: 8.0, right: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [widgetHospitalName(), widgetPriceChip()],
-                    )),
-
-                ///FeedBack
-                Padding(
-                    padding:
-                        const EdgeInsets.only(top: 158, left: 8.0, right: 8.0),
-                    child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Text("78"),
-                            Text("FeedBack"),
-                          ],
-                        ),
-                        HMargin(25),
-                        Column(
-                          children: [
-                            Text("~" + "3.0" + "km"),
-                            Text("Distance"),
-                          ],
-                        ),
-                        HMargin(35),
-                        Column(
-                          children: [widgetCallChip()],
-                        ),
-                        HMargin(25),
-                        Column(
-                          children: [widgetBookChip()],
-                        ),
-                      ],
-                    ))
-              ],
-            ),
-          )
-        ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

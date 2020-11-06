@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:updoctor/app/models/doctor_model.dart';
 import 'package:updoctor/ui/views/doctor_profile/profile.dart';
 import 'package:updoctor/ui/views/doctors_list/doctors_list.dart';
 import 'package:updoctor/ui/views/widgets/profile_card.dart';
@@ -13,9 +14,9 @@ class Updoctor extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Doctor App',
-      theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'Orkney'),
+      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'SFProDisplay'),
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      home: DoctorsScreen(),
     );
   }
 }
