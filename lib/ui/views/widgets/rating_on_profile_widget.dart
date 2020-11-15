@@ -41,6 +41,7 @@ class RatingWidget extends StatelessWidget {
             ),
             HMargin(72),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '${feedBack ?? kdefault}%',
@@ -56,6 +57,7 @@ class RatingWidget extends StatelessWidget {
             ),
             HMargin(71),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '${profiles ?? kdefault}%',

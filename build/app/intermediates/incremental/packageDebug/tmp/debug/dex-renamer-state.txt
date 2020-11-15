@@ -1,4 +1,4 @@
-#Fri Nov 06 06:02:05 WAT 2020
+#Sat Nov 14 23:38:00 WAT 2020
 base.0=/home/winexviv/updoctor/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

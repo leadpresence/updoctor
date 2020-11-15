@@ -67,11 +67,8 @@ class Profile extends HookWidget {
               FeedBackComment(),
               FeedBackComment(),
               SharePanel(),
-              widgetSpecializationHeading(),
               SpecializationList(),
-              widgetIssuesHeading(),
               IssuesList(),
-              widgetMemberShip(),
               MembershipList(),
               widgetAboutHeading(),
               widgetAbout(),
@@ -118,45 +115,6 @@ class Profile extends HookWidget {
         ),
       );
 
-  ///specialization
-  widgetSpecializationHeading() => Padding(
-        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
-        child: Container(
-          child: Text(
-            "Clinical Specialization",
-            maxLines: 1,
-            overflow: TextOverflow.visible,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-          ),
-        ),
-      );
-
-  ///issues
-  widgetIssuesHeading() => Padding(
-        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
-        child: Container(
-          child: Text(
-            "Clinical Issues",
-            maxLines: 1,
-            overflow: TextOverflow.visible,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-          ),
-        ),
-      );
-
-  ///issues
-  widgetMemberShip() => Padding(
-        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
-        child: Container(
-          child: Text(
-            "Membership ",
-            maxLines: 1,
-            overflow: TextOverflow.visible,
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-          ),
-        ),
-      );
-
   ///AboutHeading
 
   widgetAboutHeading() => Padding(
@@ -189,23 +147,58 @@ class MakeListTileDoctor extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 240,
-      child: ListTile(
+        height: 110,
+        width: 270,
+        margin: const EdgeInsets.only(left: .0, right: .0),
+        child: ListTile(
           dense: true,
-          isThreeLine: true,
-          title: Text(
-            "13 years of experience",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-          ),
-          subtitle: Text(
-            "Ayurveda - Diabetiologist  \n Mumbia | Maharashtra",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
+          // isThreeLine: true,
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 10.0, top: 0),
+            child: Text(
+              "13 years of experience",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
-          )),
-    );
+          ),
+          subtitle: Container(
+              height: 74,
+              //       width: 200,
+              child: Column(mainAxisSize: MainAxisSize.max,
+                  //         // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Ayurveda - Diabetiologist",
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            " Mumbia | Maharashtra",
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ])),
+        ));
   }
 }
 
@@ -213,7 +206,7 @@ class SingleDoctorProfile extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 4.0, right: 4),
+      padding: const EdgeInsets.only(left: 1.0, right: 1),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -234,9 +227,12 @@ class MakeListTileHospital extends HookWidget {
       child: ListTile(
           dense: true,
           isThreeLine: true,
-          title: Text(
-            "Ashvagandha Ayurvedic MultiSpeciality Clinic",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 15),
+            child: Text(
+              "Ashvagandha Ayurvedic MultiSpeciality Clinic",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
           ),
           subtitle: Text(
             "350rs",
@@ -479,23 +475,54 @@ class MakeListTileMultipleHospitals extends HookWidget {
       margin: EdgeInsets.only(left: 2, right: 2),
       padding: EdgeInsets.all(0),
       height: 100,
-      width: 220,
+      width: 200,
       child: ListTile(
-          // dense: true,
+        // dense: true,
 
-          isThreeLine: true,
-          title: Text(
-            "Ashvagandha Ayurvedic MultiSpeciality Clinic",
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-          ),
-          subtitle: Text(
-            "Solapur, Maharashtra",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w700,
-              color: black,
-            ),
-          )),
+        isThreeLine: true,
+        title: Text(
+          "Ashvagandha Ayurvedic MultiSpeciality Clinic",
+          style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+        ),
+        subtitle: Container(
+            height: 64,
+            //       width: 200,
+            child: Column(mainAxisSize: MainAxisSize.max,
+                //         // mainAxi5sAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "",
+                          overflow: TextOverflow.clip,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          " Solapur, Maharashtra",
+                          overflow: TextOverflow.clip,
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ])),
+      ),
     );
   }
 }

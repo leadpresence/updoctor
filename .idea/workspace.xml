@@ -23,16 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12483787-e58e-4986-80a0-5f2fbb7ab0a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/output.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/views/doctors_list/doctors_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/views/doctors_list/doctors_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,10 +86,10 @@
       <screen x="0" y="27" width="1366" height="693" />
     </state>
     <state x="422" y="27" width="800" height="693" key="#Plugins/0.27.1366.693@0.27.1366.693" timestamp="1604496893285" />
-    <state x="-74" y="137" width="1166" height="493" key="AVDManager" timestamp="1604710846690">
+    <state x="0" y="137" width="1166" height="493" key="AVDManager" timestamp="1605392318394">
       <screen x="0" y="27" width="1366" height="693" />
     </state>
-    <state x="-74" y="137" width="1166" height="493" key="AVDManager/0.27.1366.693@0.27.1366.693" timestamp="1604710846690" />
+    <state x="0" y="137" width="1166" height="493" key="AVDManager/0.27.1366.693@0.27.1366.693" timestamp="1605392318394" />
     <state x="231" y="117" width="424" height="520" key="FileChooserDialogImpl" timestamp="1604682537548">
       <screen x="0" y="27" width="1366" height="693" />
     </state>

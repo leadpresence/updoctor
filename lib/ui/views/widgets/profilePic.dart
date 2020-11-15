@@ -12,7 +12,7 @@ class ProfilePic extends HookWidget {
     return Container(
       height: 95,
       width: 95,
-      margin: EdgeInsets.only(left: 4, right: 4),
+      margin: EdgeInsets.only(left: 4, right: 1),
       decoration: BoxDecoration(
           color: Colors.grey[300],
           image: DecorationImage(

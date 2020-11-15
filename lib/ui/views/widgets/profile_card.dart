@@ -53,9 +53,9 @@ class _ProfileCardState extends State<ProfileCard> {
                     // top: 8,
                     left: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 8, left: 8.0),
+                      padding: const EdgeInsets.only(top: 24, left: 8.0),
                       child: Column(
-                        children: [widgetTextRate()],
+                        children: [widgetYearsOfExp()],
                       ),
                     ),
                   ),
@@ -90,6 +90,7 @@ class _ProfileCardState extends State<ProfileCard> {
                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("78"),
                               Text("FeedBack"),
@@ -97,12 +98,13 @@ class _ProfileCardState extends State<ProfileCard> {
                           ),
                           HMargin(25),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text("~" + "3.0" + "km"),
                               Text("Distance"),
                             ],
                           ),
-                          HMargin(35),
+                          HMargin(100),
                           Column(
                             children: [widgetCallChip()],
                           ),
@@ -121,7 +123,7 @@ class _ProfileCardState extends State<ProfileCard> {
     );
   }
 
-  widgetTextRate() =>
+  widgetYearsOfExp() =>
       Text("10", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12));
 
   widgetDoctorPic() => Container(
@@ -186,7 +188,7 @@ class _ProfileCardState extends State<ProfileCard> {
                         fontWeight: FontWeight.w800,
                         fontSize: 14),
                   ),
-                  HMargin(.02),
+                  HMargin(4.09),
                   GestureDetector(
                     onTap: () {},
                     child: Icon(
@@ -283,7 +285,7 @@ class _ProfileCardState extends State<ProfileCard> {
       );
   widgetCallChip() => Container(
         height: 35,
-        width: 80,
+        width: 55,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             color: Colors.grey[100],
@@ -310,7 +312,7 @@ class _ProfileCardState extends State<ProfileCard> {
 
   widgetBookChip() => Container(
         height: 35,
-        width: 80,
+        width: 55,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
             color: Colors.grey[100],

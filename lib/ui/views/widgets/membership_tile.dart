@@ -15,21 +15,30 @@ class MembershipList extends HookWidget {
   Widget build(BuildContext context) {
     // List<Specialization> p = [];
 
-    return Padding(
-      //handle height of contain when list ==null
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: screenHeight(context, percent: 0.15),
-        width: screenWidth(context),
-        child: ListView(children: [
-          // widgetSpecializationHeading(),
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          widgetMemberShip(),
           widgetTiles("National Integrated Medical Association"),
           widgetTiles("Ayurveda Association"),
-        ]),
+        ],
       ),
     );
   }
 
+  ///issues
+  widgetMemberShip() => Padding(
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+          child: Text(
+            "Membership ",
+            maxLines: 1,
+            overflow: TextOverflow.visible,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+        ),
+      );
   widgetTiles(String name) => ListTile(
         title: Text(
           "$name",

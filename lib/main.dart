@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:updoctor/app/models/doctor_model.dart';
 import 'package:updoctor/ui/views/doctor_profile/profile.dart';
-import 'package:updoctor/ui/views/doctors_list/doctors_list.dart';
+import 'package:updoctor/ui/views/doctors_list/doctors_list_screen.dart';
 import 'package:updoctor/ui/views/widgets/profile_card.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class Updoctor extends StatelessWidget {
       title: 'Doctor App',
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'SFProDisplay'),
       debugShowCheckedModeBanner: false,
-      home: DoctorsScreen(),
+      home: Profile(),
     );
   }
 }

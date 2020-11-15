@@ -101,14 +101,16 @@ class ProfilePicComementSmall extends HookWidget {
                 fit: BoxFit.fitHeight,
                 image: CachedNetworkImageProvider(url ??
                     'https://image.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg')),
-            boxShadow: [
-              BoxShadow(
-                spreadRadius: 2,
-                offset: Offset(0, 10),
-                color: Colors.grey.withOpacity(0.5),
-                blurRadius: 15,
-              ),
-            ]));
+            // boxShadow: [
+            //   BoxShadow(
+            //     spreadRadius: 2,
+            //     offset: Offset(0, 10),
+            //     color: Colors.grey.withOpacity(0.5),
+            //     blurRadius: 15,
+            //   ),
+            // ]
+            )
+            );
   }
 }
 
