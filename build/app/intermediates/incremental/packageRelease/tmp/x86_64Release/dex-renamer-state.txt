@@ -1,0 +1,4 @@
+#Wed Nov 18 06:24:47 WAT 2020
+base.0=/home/winexviv/updoctor/build/app/intermediates/transforms/r8/release/0/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

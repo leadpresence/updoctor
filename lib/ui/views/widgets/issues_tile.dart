@@ -17,31 +17,19 @@ class IssuesList extends HookWidget {
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+
+         children:
+      
+      
+        [
           widgetIssuesHeading() ,
           widgetTiles("Opthamology (Eye Doctor)"),
+
           widgetTiles("Nuclear Medicine"),
           widgetTiles("Pediatrics"),
           widgetTiles("Integrated Medicine"),
           widgetTiles("Hair Transplant Surgery"),
-          // Padding(
-          //   //handle height of contain when list ==null
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Container(
-          //     height: screenHeight(context, percent: 0.4),
-          //     width: screenWidth(context),
-          //     child: ListView(
-          //       children: [
-          //         // widgetSpecializationHeading(),
-          //         widgetTiles("Opthamology (Eye Doctor)"),
-          //         widgetTiles("Nuclear Medicine"),
-          //         widgetTiles("Pediatrics"),
-          //         widgetTiles("Integrated Medicine"),
-          //         widgetTiles("Hair Transplant Surgery"),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+         
         ],
       ),
     );
@@ -60,6 +48,8 @@ class IssuesList extends HookWidget {
           ),
         ),
       );
+
+
   widgetTiles(String name) => ListTile(
         title: Text(
           "$name",

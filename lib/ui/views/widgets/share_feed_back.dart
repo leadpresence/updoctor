@@ -18,7 +18,7 @@ class SharePanel extends HookWidget {
             Column(
               children: [ShareFeeback()],
             ),
-            HMargin(30),
+            HMargin(20),
             Column(
               children: [
                 MoreFeeback(),
@@ -58,7 +58,7 @@ class MoreFeeback extends HookWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 70,
-      width: 190,
+      width: 180,
       child: OutlineButton(
           borderSide: BorderSide(color: Colors.transparent, width: 0),
           // color: Colors.blAccent[700],

@@ -14,7 +14,7 @@ class RatingWidget extends StatelessWidget {
     TextStyle kstyleLg = TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
     int kdefault = 0;
     return Padding(
-      padding: const EdgeInsets.only(left: 6, right: 2.2, bottom: 8, top: 0.2),
+      padding: const EdgeInsets.only(left: 6, right: 0.0, bottom: 8, top: 0.2),
       child: Container(
         alignment: Alignment.center,
         height: 70,
@@ -55,7 +55,7 @@ class RatingWidget extends StatelessWidget {
                 )
               ],
             ),
-            HMargin(71),
+            HMargin(60),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

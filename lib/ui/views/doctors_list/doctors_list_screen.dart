@@ -25,59 +25,61 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
     // SystemChrome.setEnabledSystemUIOverlays([]);
     return Background(
       showAppBar: false,
-      child: Container(
-          // color: Colors.transparent,
-          height: screenHeight(context, percent: 100),
-          width: screenWidth(context),
-          child: Column(children: <Widget>[
-            /// stack to position back button and the search field
-            Stack(
-              alignment: Alignment.centerLeft,
-              children: [
-                widgetBackIcon(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child:
+      child: SafeArea(
+        child: Container(
+            // color: Colors.transparent,
+            height: screenHeight(context),
+            width: screenWidth(context),
+            child: Column(children: <Widget>[
+              /// stack to position back button and the search field
+              Stack(
+                alignment: Alignment.centerLeft,
+                children: [
+                  widgetBackIcon(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Expanded(
+                        child:
 
-                          ///parent container for the text field
-                          ///decoration
-                          Container(
-                              height: 47,
-                              width: screenWidth(context, percent: 10),
-                              margin: EdgeInsets.symmetric(horizontal: 40),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(25),
-                                border: Border.all(
-                                    width: 1, color: Colors.grey[50]),
-                                boxShadow: [
-                                  BoxShadow(
-                                    spreadRadius: -12,
-                                    offset: Offset(0, 10),
-                                    color: Colors.grey.withOpacity(0.2),
-                                    blurRadius: 25,
-                                  ),
-                                ],
-                              ),
-                              padding: EdgeInsets.symmetric(vertical: 10),
+                            ///parent container for the text field
+                            ///decoration
+                            Container(
+                                height: 47,
+                                width: screenWidth(context, percent: 10),
+                                margin: EdgeInsets.symmetric(horizontal: 40),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(25),
+                                  border: Border.all(
+                                      width: 1, color: Colors.grey[50]),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      spreadRadius: -12,
+                                      offset: Offset(0, 10),
+                                      color: Colors.grey.withOpacity(0.2),
+                                      blurRadius: 25,
+                                    ),
+                                  ],
+                                ),
+                                padding: EdgeInsets.symmetric(vertical: 10),
 
-                              ///text editing for the search
-                              child: widgetSearchtextField()),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const VMargin(60),
-            FilterPanel(),
-            const VMargin(60),
+                                ///text editing for the search
+                                child: widgetSearchtextField()),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const VMargin(60),
+              FilterPanel(),
+              const VMargin(60),
 
-            ///This is the Parent to the List of doctors Models
-            DoctorsList()
-          ])),
+              ///This is the Parent to the List of doctors Models
+              DoctorsList()
+            ])),
+      ),
     );
   }
 
@@ -103,7 +105,7 @@ class DoctorsList extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: screenHeight(context) - 150,
+      height: screenHeight(context)-100,
       width: screenWidth(context),
       // child: FadingEdgeScrollView.fromScrollView(
       // gradientFractionOnEnd: 0.5,
@@ -124,9 +126,10 @@ class FilterPanel extends HookWidget {
     return Flexible(
       flex: 2,
       child: Container(
+        height: 200,
         color: Colors.transparent,
         child: Padding(
-          padding: EdgeInsets.only(left: 42, right: 42, top: 16, bottom: 16),
+          padding: EdgeInsets.only(left: 42, right: 42, top: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

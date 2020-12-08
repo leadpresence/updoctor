@@ -26,13 +26,14 @@ class Background extends StatelessWidget {
               title: Text(title ?? "",
                   style: TextStyle(fontSize: 20, color: darkGrey)),
               brightness: Brightness.light,
-              backgroundColor: grey100,
+              backgroundColor: Colors.white,
               elevation: 0,
               leading: icon,
             ),
             body: Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: Container(
+                margin: EdgeInsets.fromLTRB(8, 0, 8, 20),
                 child: Stack(children: [
                   Align(
                     alignment: Alignment.topRight,
@@ -51,8 +52,9 @@ class Background extends StatelessWidget {
         : Scaffold(
             backgroundColor: bcolor ?? grey50,
             body: Padding(
-              padding: const EdgeInsets.only(top: 16.0),
+              padding: const EdgeInsets.only(top: 10.0),
               child: Container(
+                margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
                 child: Stack(children: [
                   Align(
                     alignment: Alignment.topRight,

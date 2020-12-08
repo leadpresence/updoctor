@@ -12,8 +12,8 @@ class HospitalPicSmall extends HookWidget {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Container(
-        height: 75,
-        width: 75,
+        height: 42,
+        width: 40.99,
         margin: EdgeInsets.only(left: 4, right: 4),
         decoration: BoxDecoration(
             color: Colors.grey[300],

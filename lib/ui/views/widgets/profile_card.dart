@@ -31,7 +31,7 @@ class _ProfileCardState extends State<ProfileCard> {
           alignment: Alignment.centerLeft,
           children: [
             Container(
-              height: 198,
+              height: 200,
               width: screenWidth(context),
               margin: EdgeInsets.all(4),
               decoration: BoxDecoration(
@@ -85,9 +85,9 @@ class _ProfileCardState extends State<ProfileCard> {
                   ///FeedBack
                   Padding(
                       padding: const EdgeInsets.only(
-                          top: 158, left: 8.0, right: 8.0),
+                          top: 158, left: 8.0, right: 8.0,bottom: 4),
                       child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +108,7 @@ class _ProfileCardState extends State<ProfileCard> {
                           Column(
                             children: [widgetCallChip()],
                           ),
-                          HMargin(25),
+                          HMargin(10),
                           Column(
                             children: [widgetBookChip()],
                           ),
@@ -136,7 +136,8 @@ class _ProfileCardState extends State<ProfileCard> {
                 fit: BoxFit.cover,
                 image: CachedNetworkImageProvider(
                     'https://image.freepik.com/free-photo/portrait-smiling-handsome-male-doctor-man_171337-5055.jpg')),
-            borderRadius: BorderRadius.circular(5)),
+            borderRadius: BorderRadius.circular(5)
+      ),
       );
 
   widgetDoctorDetails() => Expanded(
@@ -147,7 +148,7 @@ class _ProfileCardState extends State<ProfileCard> {
           contentPadding: EdgeInsets.symmetric(horizontal: 10),
           onTap: () {},
           title: Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: EdgeInsets.only(top: 15),
             child: Text(
               'Dr.' + 'Swapnil Katare',
               overflow: TextOverflow.clip,

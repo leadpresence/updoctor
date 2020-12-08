@@ -48,7 +48,7 @@ class Profile extends HookWidget {
               widgetAddress(),
               Padding(
                 padding:
-                    EdgeInsets.only(top: 6, bottom: 6, left: 10, right: 10),
+                    EdgeInsets.only(top: 6, bottom: 6, left: 6, right: 6),
                 child: Container(
                   height: 225,
                   width: screenWidth(context),
@@ -71,6 +71,9 @@ class Profile extends HookWidget {
               IssuesList(),
               MembershipList(),
               widgetAboutHeading(),
+              SizedBox(
+                height: 15,
+              ),
               widgetAbout(),
               ReportIssue()
             ],
@@ -133,6 +136,8 @@ class Profile extends HookWidget {
         padding: EdgeInsets.only(top: 0, bottom: 6, left: 8, right: 8),
         child: Text(
           'Dr. Chibueze Felix is a platform where Indians can be kept in the loop about bills, policies and laws that concern us and affect us directly/indirectly. Those in power are representatives of Indian and have no right to do anything contrary to our wish because this is a Healthe and they are to exercise our wishes. This is not our wish!',
+          // textAlignVertical: TextAlignVertical.center,
+          textAlign: TextAlign.justify,
           style: TextStyle(
             fontSize: 14,
             color: Colors.grey[800],
@@ -154,7 +159,7 @@ class MakeListTileDoctor extends HookWidget {
           dense: true,
           // isThreeLine: true,
           title: Padding(
-            padding: const EdgeInsets.only(bottom: 10.0, top: 0),
+            padding: const EdgeInsets.only(bottom: 12.0, top: 0),
             child: Text(
               "13 years of experience",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -167,7 +172,7 @@ class MakeListTileDoctor extends HookWidget {
                   //         // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
+                      padding: const EdgeInsets.only(top: 13.0),
                       child: Row(
                         children: [
                           Text(
@@ -235,7 +240,7 @@ class MakeListTileHospital extends HookWidget {
             ),
           ),
           subtitle: Text(
-            "350rs",
+            "Rs." + " 350",
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.w700,
@@ -272,18 +277,18 @@ class HospitalImages extends HookWidget {
       child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: Colors.grey[50],
-            boxShadow: [
-              BoxShadow(
-                spreadRadius: 0,
-                offset: Offset(0, 10),
-                color: Colors.grey.withOpacity(0.5),
-                blurRadius: 55,
-              ),
-            ],
+            color: Colors.white,
+            // boxShadow: [
+            //   BoxShadow(
+            //     spreadRadius: 0,
+            //     offset: Offset(0, 10),
+            //     color: Colors.grey.withOpacity(0.5),
+            //     blurRadius: 55,
+            //   ),
+            // ],
           ),
           // color: grey,
-          height: 90.0,
+          height: 42.0,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
@@ -335,7 +340,10 @@ class ClinicDetails extends HookWidget {
             ),
             title: Text(
               "Clinic Details",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "SFProDisplay"),
             ),
           ),
         ],
@@ -353,95 +361,93 @@ class AvailableDays extends HookWidget {
       fontSize: 16,
     );
     return Padding(
-      padding: EdgeInsets.only(left: 6, right: 6, top: 6),
-      child: Container(
-        width: screenWidth(context),
-        height: 60,
-        // color: black,
-        child: Column(
-          children: [
-            //Times
-            Row(
-              children: [
-                Text(
-                  "Mon-Thur:",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                HMargin(5),
-                Text(
-                  "12:30",
-                  style: kst,
-                ),
-                Text("-"),
-                Text(
-                  "17:30",
-                  style: kst,
-                ),
-                Text(","),
-                HMargin(5),
-                Text(
-                  "19:30",
-                  style: kst,
-                ),
-                Text("-"),
-                Text(
-                  "22:30",
-                  style: kst,
-                ),
-                Text(","),
-                HMargin(5),
-                Text(
-                  "8:30",
-                  style: kst,
-                ),
-                Text("-"),
-                Text(
-                  "12:30",
-                  style: kst,
-                ),
-                Text(","),
-              ],
-            ),
-            // HMargin(25),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.leaf,
-                  color: black,
-                  size: 12,
-                ),
-                HMargin(5),
-                Text(
-                  "Holidays:",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  maxLines: 1,
-                ),
-                HMargin(5),
-                Text(
-                  "Thurs",
-                  style: kst,
-                ),
-                HMargin(5),
-                Text("-"),
-                HMargin(5),
-                Text(
-                  "Sun",
-                  style: kst,
-                ),
-              ],
-            ),
-          ],
-        ),
+        padding: EdgeInsets.only(top: 6, bottom: 6, left: 10),
+        child: Container(
+      width: screenWidth(context),
+      height: 60,
+      // color: black,
+      child: Column(
+        children: [
+          //Times
+          Row(
+            children: [
+              Text(
+                "Mon-Thur:",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              HMargin(5),
+              Text(
+                "12:30",
+                style: kst,
+              ),
+              Text("-"),
+              Text(
+                "17:30",
+                style: kst,
+              ),
+              Text(","),
+              HMargin(5),
+              Text(
+                "19:30",
+                style: kst,
+              ),
+              Text("-"),
+              Text(
+                "22:30",
+                style: kst,
+              ),
+              Text(","),
+              HMargin(5),
+              Text(
+                "8:30",
+                style: kst,
+              ),
+              Text("-"),
+              Text(
+                "12:30",
+                style: kst,
+              ),
+              Text(","),
+            ],
+          ),
+          // HMargin(25),
+          SizedBox(
+            height: 10,
+          ),
+          Row(
+            children: [
+              FaIcon(
+                FontAwesomeIcons.leaf,
+                color: black,
+                size: 12,
+              ),
+              HMargin(5),
+              Text(
+                "Holidays:",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                maxLines: 1,
+              ),
+              HMargin(5),
+              Text(
+                "Thurs",
+                style: kst,
+              ),
+              HMargin(5),
+              Text("-"),
+              HMargin(5),
+              Text(
+                "Sun",
+                style: kst,
+              ),
+            ],
+          ),
+        ],
       ),
-    );
+     ) );
   }
 }
 
 class AvailbleInWidget extends HookWidget {
-  // TODO: add parameters
   @override
   Widget build(BuildContext context) {
     return Padding(
